@@ -62,5 +62,41 @@ namespace OpenXRRuntimeJsons
 
             return false;
         }
+
+        public static string GetCurrentOpenXRRuntimeName()
+        {
+            new EnvironmentVariableRuntimeJson().TryGetJsonPath(out string path);
+
+            if (path == null)
+                new SystemDefaultRuntimeJson().TryGetJsonPath(out path);
+
+            if (path == null)
+                return "Unknown";
+
+            path = path.ToLower();
+
+            if (path.Contains("oculus"))
+            {
+                return "Oculus";
+            }
+            else if (path.Contains("steam"))
+            {
+                return "SteamVR";
+            }
+            else if (path.Contains("mixedreality"))
+            {
+                return "Windows Mixed Reality";
+            }
+            else if (path.Contains("varjo"))
+            {
+                return "Varjo";
+            }
+            else if (path.Contains("vive"))
+            {
+                return "Vive";
+            }
+
+            return Path.GetFileNameWithoutExtension(path);
+        }
     }
 }
