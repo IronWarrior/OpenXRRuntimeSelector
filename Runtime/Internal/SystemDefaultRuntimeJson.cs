@@ -17,7 +17,7 @@ namespace OpenXRRuntimeJsons.Internal
 
         public bool TryGetJsonPath(out string jsonPath)
         {
-            var pathValue = Registry.GetValue(OpenXRKey, OpenXRValue, string.Empty);
+            var pathValue = OpenXRRuntimeJson.RegistryGetValue(OpenXRKey, OpenXRValue, string.Empty);
             if (pathValue is string path && !string.IsNullOrWhiteSpace(path))
             {
                 if (File.Exists(path))

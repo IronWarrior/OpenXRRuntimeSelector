@@ -17,7 +17,7 @@ namespace OpenXRRuntimeJsons.Internal
 
         public bool TryGetJsonPath(out string jsonPath)
         {
-            var oculusPathValue = Registry.GetValue(InstallLocKey, InstallLocValue, string.Empty);
+            var oculusPathValue = OpenXRRuntimeJson.RegistryGetValue(InstallLocKey, InstallLocValue, string.Empty);
             if (oculusPathValue is string oculusPath && !string.IsNullOrWhiteSpace(oculusPath))
             {
                 var path = Path.Combine(oculusPath, JsonName);

@@ -18,7 +18,7 @@ namespace OpenXRRuntimeJsons.Internal
         public bool TryGetJsonPath(out string jsonPath)
         {
             jsonPath = default;
-            var varjoPathValue = Registry.GetValue(VarjoRuntimeKey, InstallDirKey, string.Empty);
+            var varjoPathValue = OpenXRRuntimeJson.RegistryGetValue(VarjoRuntimeKey, InstallDirKey, string.Empty);
             if (!(varjoPathValue is string vivePath))
             {
                 return false;

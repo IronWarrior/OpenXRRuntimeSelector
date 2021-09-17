@@ -23,7 +23,7 @@ namespace OpenXRRuntimeJsons.Internal
         public bool TryGetJsonPath(out string jsonPath)
         {
             jsonPath = default;
-            var steamPathValue = Registry.GetValue(SteamPathKey, SteamPathValue, string.Empty);
+            var steamPathValue = OpenXRRuntimeJson.RegistryGetValue(SteamPathKey, SteamPathValue, string.Empty);
             if (!(steamPathValue is string steamPath))
             {
                 return false;

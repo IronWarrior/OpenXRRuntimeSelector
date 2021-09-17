@@ -63,6 +63,15 @@ namespace OpenXRRuntimeJsons
             return false;
         }
 
+        public static object RegistryGetValue(string keyName, string valueName, object defaultValue)
+        {
+#if !UNITY_ANDROID
+            return Microsoft.Win32.Registry.GetValue(keyName, valueName, defaultValue);
+#else
+            return defaultValue;
+#endif
+        }
+
         public static string GetCurrentOpenXRRuntimeName()
         {
             new EnvironmentVariableRuntimeJson().TryGetJsonPath(out string path);
